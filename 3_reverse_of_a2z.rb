@@ -1,3 +1,5 @@
+# 3. Print a-z in reverse order
+
 alphabets = ('a'..'z')
 alphabets_arr = alphabets.to_a
 

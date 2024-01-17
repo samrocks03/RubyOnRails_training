@@ -1,3 +1,4 @@
+#1. WAP to display number is prime or not
 def is_prime?(n)
     return false if n<2
     #  The enumerable's way
