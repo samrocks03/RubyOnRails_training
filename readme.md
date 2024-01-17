@@ -1,6 +1,6 @@
 # ROR [ Ruby on Rails ]
 
-## Module-1
+## Module-1 : Basic Syntax, Built-in Types, Regex
 
 1. WAP to display number is prime or not
 <br>
