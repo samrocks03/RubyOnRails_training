@@ -1,6 +1,6 @@
 # ROR [ Ruby on Rails ]
 
-- This is a repository to learn Ruby with it's framework Rails
+## Module-2 : Ruby Methods & blocks, iterators
 
-- One can find out every module in a seperate branch with branch name <Module_n>
-
+- Try out different examples on the below topics on their 
+<br>own on ruby console - Hangman Game
