@@ -1,18 +1,13 @@
 # Putting things into class:
-class Hangman
-    #local instance method which will return the value of lives
-    attr_reader :lives
-    # Similarly, for the board
-    attr_reader :board
-    attr_reader :my_secret_word
 
+class Game
+    attr_reader :lives,:board,:my_secret_word
     # -------INIT STATE------------
-    def initialize
+    def initialize(word_List)
         @lives = 7
         @my_secret_word = word_List.sample
         @board = set_up_the_board
     end
-
 
     # ---------SETTING UP THE BOARD---------
     def set_up_the_board
@@ -34,53 +29,11 @@ class Hangman
         lives <= 0
     end
 
-    # ---------WORD LIST------------
-    def word_List
-        [
-            "dog",
-            "elephant",
-            "lion",
-            "tiger",
-            "albatrauss"
-        ]
-    end
-
     # -------- MAKE GUESS -----------
     def make_guess
         print "Please guess a letter:"
         gets.chomp #implicit return occurs here
     end
-
-
-
-    # ----------STARTING UP THE GAME--------------
-    def start
-        puts "Welcome To HANG_MAN
-        
-        Please enter a single character at a time"
-
-        while @lives > 0 && !won?
-            # print the num. of lives
-            puts "\nYou have #{@lives} lives left."
-
-            # print the board state 
-            puts board_state
-
-            # receive our required guess
-            guess = make_guess
-
-            # update the board with relevant value
-            update_board(guess)
-
-        end
-            if won?
-                puts "You won!!"
-            else
-                puts "You lost!!"
-                puts "Actual word was ~~#{@my_secret_word}~~"
-            end
-    end
-
 
     def update_board(guess)
         if my_secret_word.include?(guess)
@@ -97,5 +50,44 @@ class Hangman
         end
     end
 end
+
+
+# Inheriting from the Game class to create our HangMan Game
+class Hangman < Game
+    #local instance method which will return the value of lives
+    def initialize
+        super(["dog","elephant","lion","tiger","albatrauss"])
+    end
+
+    # ----------STARTING UP THE GAME--------------
+    def start
+        puts "Welcome To HANG_MAN
+        Please enter a single character at a time"
+
+        while @lives > 0 && !won?
+            # print the num. of lives
+            puts "\nYou have #{@lives} lives left."
+
+            # print the board state 
+            puts board_state
+
+            # receive our required guess
+            guess = make_guess
+
+            # update the board with relevant value
+            update_board(guess)
+        end
+
+
+        if won?
+            puts "You won!!"
+        else
+            puts "You lost!!"
+            puts "Actual word was ~~#{@my_secret_word}~~"
+        end
+    end
+end
+
+
 game = Hangman.new
 game.start
