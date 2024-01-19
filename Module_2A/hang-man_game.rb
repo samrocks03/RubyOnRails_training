@@ -1,45 +1,101 @@
+# Putting things into class:
+class Hangman
+    #local instance method which will return the value of lives
+    attr_reader :lives
+    # Similarly, for the board
+    attr_reader :board
+    attr_reader :my_secret_word
 
-list_of_wrds = ["dog","cat","rat","elephant","horse"]
-
-
-
-# To get random element from array! 
-my_secret_word = list_of_wrds.sample
-puts "the secret word is #{my_secret_word}"
-board = Array.new(my_secret_word.size){"_"}
-
-puts board.join(" ")
-
-lives = 7
-while lives>0 && board.include?("_")
-    puts "You have #{lives} lives left! "
-    print "Please guess a letter:"
-    # .chomp : string method to remove the white space at the end
-    guess = gets.chomp
-    # p guess #just for testing HeHe
-    puts "your guess was : #{guess}"
-
-    if my_secret_word.include?(guess)
-        """
-            If any of the letters in `my_secret_word` does match,
-            then update the `board` location of the matching letters 
-            to reveal the guessed word 
-        """
-    
-        # pass a block with char and index
-        my_secret_word.chars.each_with_index do |ch,ind| 
-            if ch == guess
-                board[ind] = ch #if, ch is guess, then update board's ind with ch
-            end    
+    # -------INIT STATE------------
+    def initialize
+        @lives = 7
+        @my_secret_word = word_List.sample
+        @board = set_up_the_board
     end
-    else
-        lives = lives-1
-        puts "The word didn't include #{guess}"
-        if lives == 0
-            puts "Sorry! you failed the game"
+
+
+    # ---------SETTING UP THE BOARD---------
+    def set_up_the_board
+        Array.new(my_secret_word.size){"_"}
+    end
+
+
+    # ---------BOARD STATE----------
+    def board_state
+        board.join(" ")
+    end
+
+    # --------WIN STATUS------------
+    def won?
+        board.join("") == my_secret_word
+    end
+
+    def lost?
+        lives <= 0
+    end
+
+    # ---------WORD LIST------------
+    def word_List
+        [
+            "dog",
+            "elephant",
+            "lion",
+            "tiger",
+            "albatrauss"
+        ]
+    end
+
+    # -------- MAKE GUESS -----------
+    def make_guess
+        print "Please guess a letter:"
+        gets.chomp #implicit return occurs here
+    end
+
+
+
+    # ----------STARTING UP THE GAME--------------
+    def start
+        puts "Welcome To HANG_MAN
+        
+        Please enter a single character at a time"
+
+        while @lives > 0 && !won?
+            # print the num. of lives
+            puts "\nYou have #{@lives} lives left."
+
+            # print the board state 
+            puts board_state
+
+            # receive our required guess
+            guess = make_guess
+
+            # update the board with relevant value
+            update_board(guess)
+
+        end
+            if won?
+                puts "You won!!"
+            else
+                puts "You lost!!"
+                puts "Actual word was ~~#{@my_secret_word}~~"
+            end
+    end
+
+
+    def update_board(guess)
+        if my_secret_word.include?(guess)
+            i = 0
+            while i < my_secret_word.size
+                # if the guess was "A" -> it gives 'a'
+                if guess.downcase == my_secret_word[i].downcase                
+                    board[i] = my_secret_word[i]
+                end
+                i += 1
+            end
+        else
+            @lives -= 1
         end
     end
-    puts board.join("")
 end
-
-puts "The word was ``#{my_secret_word}``"
+game = Hangman.new
+game.start
