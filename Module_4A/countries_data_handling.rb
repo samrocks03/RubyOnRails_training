@@ -48,7 +48,7 @@ module MilitaryModule
   end
   
 
-  # country_data_cli.rb
+#  ----------------- country data ---------------------------
   class CountryData
     def initialize
       @countries = []
@@ -124,7 +124,6 @@ module MilitaryModule
     end
   end
   
-  # Example usage
   cli = CountryData.new
   cli.run
   
