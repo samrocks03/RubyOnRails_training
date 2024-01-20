@@ -48,7 +48,7 @@ module MilitaryModule
   end
   
 
-#  ----------------- country data ---------------------------
+#  ----------------- country data class---------------------------
   class CountryData
     def initialize
       @countries = []
