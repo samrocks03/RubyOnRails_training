@@ -4,16 +4,11 @@
 
 A CLI application for handling data from as many countries as we can. Example of what data we can have:
 - Population
-<br>
 - GDP(Gross Domestic Production)
-<br>
 - States
-<br>
 - Army Strength
-<br>
 - State of the country(developing, developed) Etc.
 
-<br>
 <br>
 
 On the basis of all these data we will be building modules to conceive various outputs like:
