@@ -7,7 +7,7 @@ def fact(n)
   end
   n * fact(n-1)
 end
-p fact(5)
+# p fact(5)
 
 # `Way-2` to calculate factorial
 def factorial(n)
@@ -18,3 +18,4 @@ def factorial(n)
   end
   fac #return the `fac` value
 end
+p factorial(5)
