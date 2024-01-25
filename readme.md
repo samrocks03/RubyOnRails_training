@@ -1,6 +1,10 @@
 # ROR [ Ruby on Rails ]
 
-- This is a repository to learn Ruby with it's framework Rails
+## Module-3 : Classes and objects
 
-- One can find out every module in a seperate branch with branch name <Module_n>
 
+Try out different examples on above topics by their own on ruby console
+
+
+- Here, I'm updating my previous Hang_man_Game with the same logic, 
+<br>but in an Object Oriented way :) 
