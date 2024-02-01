@@ -1,0 +1,2 @@
+class FinePayment < ApplicationRecord
+end
