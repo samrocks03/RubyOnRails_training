@@ -1,6 +1,5 @@
 # ROR [ Ruby on Rails ]
 
-- This is a repository to learn Ruby with it's framework Rails
+1. Add the other migrations like rename, add column in yesterday's project and try Validation on the data in Model.
 
-- One can find out every module in a seperate branch with branch name <Module_n>
-
+2. Send the welcome to the user after a successful registration.
