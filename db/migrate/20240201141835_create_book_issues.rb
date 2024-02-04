@@ -3,8 +3,9 @@ class CreateBookIssues < ActiveRecord::Migration[7.1]
     create_table :book_issues do |t|
       t.date :issue_date
       t.date :return_date
-      t.references :book, :member, :library_staff, foreign_key: true
-
+      t.references :book,:member,:library_staff, foreign_key: true
+      # t.references :member, foreign_key: true
+      # t.references :library_staff, foreign_key: true
       t.timestamps
     end
   end

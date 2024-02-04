@@ -5,7 +5,8 @@ class CreateBookRequests < ActiveRecord::Migration[7.1]
       t.binary :available
       t.date :nearest_available_date
 
-      t.references :book, :member
+      t.references :book, foreign_key: true
+      t.references :member, foreign_key: true
       t.timestamps
     end
   end

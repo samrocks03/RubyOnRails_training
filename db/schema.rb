@@ -100,6 +100,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_142343) do
   add_foreign_key "book_issues", "books"
   add_foreign_key "book_issues", "library_staffs"
   add_foreign_key "book_issues", "members"
+  add_foreign_key "book_requests", "books"
+  add_foreign_key "book_requests", "members"
   add_foreign_key "books", "publishers"
   add_foreign_key "fine_payments", "members"
 end
