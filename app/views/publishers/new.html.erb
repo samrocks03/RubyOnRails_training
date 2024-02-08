@@ -1,0 +1,20 @@
+<h1>Create Publisher</h1>
+<%= form_for(@publisher) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :language %>
+    <%= f.text_field :language %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :year %>
+    <%= f.number_field :year %>
+  </div>
+  <br>
+  <%= f.submit 'Create' %>
+  <%= link_to 'Back', publishers_path %> 
+<% end %>

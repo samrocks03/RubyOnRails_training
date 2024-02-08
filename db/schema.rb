@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_01_142343) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_08_103326) do
   create_table "authors", force: :cascade do |t|
     t.text "name"
     t.datetime "created_at", null: false
@@ -54,17 +54,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_142343) do
   create_table "books", force: :cascade do |t|
     t.text "title"
     t.text "category_name"
-    t.integer "publisher_id"
+    t.integer "publisher_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "fine_payments", force: :cascade do |t|
-    t.date "fine_due_date"
-    t.date "payment_date"
-    t.integer "payment_amount"
-    t.integer "member_id"
+    t.date "fine_due_date", null: false
+    t.date "payment_date", null: false
+    t.integer "payment_amount", null: false
+    t.integer "member_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_fine_payments_on_member_id"
@@ -78,11 +78,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_142343) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "city"
-    t.string "mobile_no"
-    t.boolean "active"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "city", null: false
+    t.string "mob"
+    t.boolean "active", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -102,6 +102,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_142343) do
   add_foreign_key "book_issues", "members"
   add_foreign_key "book_requests", "books"
   add_foreign_key "book_requests", "members"
+  add_foreign_key "books", "publishers"
   add_foreign_key "books", "publishers"
   add_foreign_key "fine_payments", "members"
 end

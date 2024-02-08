@@ -8,12 +8,12 @@ class Member < ApplicationRecord
   has_many :book_issues
 
   validates :first_name, :last_name, :city, presence: true
-  validates :mobile_no, length: { is: 10 }, uniqueness: true
+  # validates :mobile_no, length: { is: 10 }, uniqueness: true, presence: true
   # validates :mobile_no, presence: true, uniqueness: true
 
 
-  private
-    def send_welcome_message
-      puts "\n\n Welcome, #{first_name}! Your registration was successful.\n\n"
-    end
+  # private
+  #   def send_welcome_message
+  #     puts "\n\n Welcome, #{first_name}! Your registration was successful.\n\n"
+  #   end
 end
