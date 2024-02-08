@@ -1,0 +1,16 @@
+<h1>Publishers</h1>
+
+
+    <ul>
+        <% @publishers.each do |u| %>
+          <li> 
+            <%= link_to u.name, publisher_path(u) %>
+            <%= button_to "Edit", edit_publisher_path(u), method: :get %>
+            <%= button_to "Delete", publisher_path(u), method: :delete %>
+          </li>
+    </ul>
+<% end %>
+
+<p>
+    <%= link_to "Add new publisher: ", {action: 'new'} %>
+</p>
